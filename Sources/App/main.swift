@@ -1,9 +1,9 @@
-import Hummingbird
-import SQLite
 import Foundation
+import Hummingbird
+@preconcurrency import SQLite
 
 // Setup SQLite Database
-let db = try Database.setup()
+nonisolated(unsafe) let db = try Database.setup()
 
 // Setup Web Server (Hummingbird)
 let router = Router()
