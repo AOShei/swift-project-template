@@ -18,7 +18,7 @@
         }
     },
     "forwardPorts": [8080],
-    "postCreateCommand": "swift package resolve",
+    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y libsqlite3-dev && swift package resolve",
     "remoteUser": "vscode",
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {

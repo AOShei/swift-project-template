@@ -20,10 +20,7 @@ let package = Package(
                 .product(name: "Hummingbird", package: "hummingbird"),
                 .product(name: "SQLite", package: "SQLite.swift"),
             ],
-            path: "Sources/App",
-            resources: [
-                .process("Resources")
-            ]
+            path: "Sources/App"
         ),
     ]
 )
