@@ -49,7 +49,7 @@ struct Views {
     }
 }
 
-// Helper to allow Hummingbird to return HTML strings
+// Allows Hummingbird to return HTML strings
 struct HTML: ResponseGenerator {
     let content: String
     func response(from request: Request, context: some RequestContext) throws -> Response {
