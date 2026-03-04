@@ -3,7 +3,7 @@ import Hummingbird
 @preconcurrency import SQLite
 
 // Setup SQLite Database
-nonisolated(unsafe) let db = try Database.setup()
+let db = try Database.setup()
 
 // Setup Web Server (Hummingbird)
 let router = Router()
