@@ -11,7 +11,8 @@ let package = Package(
         // Hummingbird 2.0 - Lightweight Web Framework
         .package(url: "https://github.com/hummingbird-project/hummingbird.git", from: "2.0.0"),
         // SQLite.swift - Type-safe SQLite wrapper
-        .package(url: "https://github.com/stephencelis/SQLite.swift.git", from: "0.15.0"),
+        // SQLiteSwiftCSQLite trait embeds SQLite on Linux — no libsqlite3-dev needed
+        .package(url: "https://github.com/stephencelis/SQLite.swift.git", from: "0.15.6", traits: ["SQLiteSwiftCSQLite"]),
     ],
     targets: [
         .executableTarget(
