@@ -29,8 +29,8 @@ struct Views {
         </head>
         <body class="container" style="padding-top: 2rem; max-width: 600px;">
             <header>
-                <h1>My Swift Tasks</h1>
-                <p>A lightweight SQLite-backed student project.</p>
+                <h1>Swift Task List</h1>
+                <p>A lightweight TO-DO List app built with Swift, Hummingbird, and SQLite.</p>
             </header>
             
             <main>
