@@ -14,11 +14,17 @@ router.get("/") { _, _ -> HTML in
     return Views.renderIndex(items: allTasks)
 }
 
-// API: Add Task
-router.post("/add") { request, context -> Response in
-    struct AddRequest: Decodable { let title: String }
-    let input = try await request.decode(as: AddRequest.self, context: context)
-    try Database.addTask(db: db, title: input.title)
+// API: Add Task (form submits application/x-www-form-urlencoded, not JSON)
+router.post("/add") { request, _ -> Response in
+    let buffer = try await request.body.collect(upTo: 1024 * 16)
+    let bodyString = String(buffer: buffer)
+    var components = URLComponents()
+    components.percentEncodedQuery = bodyString
+    let title = components.queryItems?.first(where: { $0.name == "title" })?.value ?? ""
+    guard !title.isEmpty else {
+        return Response(status: .badRequest)
+    }
+    try Database.addTask(db: db, title: title)
     return Response(status: .seeOther, headers: [.location: "/"])
 }
 
